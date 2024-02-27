@@ -5,6 +5,7 @@ const authNavigateSlicer = createSlice({
   initialState: {
     pageLogin: true,
     errorAuth: "",
+    user: null,
   },
   reducers: {
     togglePage: (state) => {
@@ -16,7 +17,14 @@ const authNavigateSlicer = createSlice({
     cleanError: (state) => {
       state.errorAuth = "";
     },
+    login: (state, action) => {
+      state.user = action.payload;
+    },
+    logout: (state) => {
+      state.user = null;
+    },
   },
 });
-export const { togglePage, setError, cleanError } = authNavigateSlicer.actions;
+export const { togglePage, setError, cleanError, login, logout } =
+  authNavigateSlicer.actions;
 export default authNavigateSlicer.reducer;

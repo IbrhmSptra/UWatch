@@ -1,4 +1,4 @@
-const Input = ({ type, label, placeholder }) => {
+const Input = ({ type, label, placeholder, onchange }) => {
   return (
     <div>
       <h3 className={`text-white font-bold lg:text-xl`}>{label}</h3>
@@ -7,6 +7,7 @@ const Input = ({ type, label, placeholder }) => {
         type={type}
         placeholder={placeholder}
         required
+        onChange={onchange}
       />
     </div>
   );

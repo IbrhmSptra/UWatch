@@ -11,16 +11,20 @@ const ButtonTrailer = ({ id }) => {
   }, []);
 
   return (
-    <div className="border-2 border-tertiary rounded-full py-1  w-32 bg-card hover:border-white transition-all">
-      <a
-        href={`https://www.youtube.com/watch?v=${trailer.key}`}
-        target="_blank"
-        className="w-full h-full flex justify-evenly"
-      >
-        <CiPlay1 className="text-white text-2xl" />
-        <p className="text-white">Trailer</p>
-      </a>
-    </div>
+    <>
+      {trailer && (
+        <div className="border-2 border-tertiary rounded-full py-1  w-32 bg-card hover:border-white transition-all">
+          <a
+            href={`https://www.youtube.com/watch?v=${trailer.key}`}
+            target="_blank"
+            className="w-full h-full flex justify-evenly"
+          >
+            <CiPlay1 className="text-white text-2xl" />
+            <p className="text-white">Trailer</p>
+          </a>
+        </div>
+      )}
+    </>
   );
 };
 

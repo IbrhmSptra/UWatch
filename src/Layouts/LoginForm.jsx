@@ -9,7 +9,6 @@ import {
   signInWithEmailAndPassword,
 } from "../Services/Firebase/firebase.service";
 import { useState } from "react";
-import { login } from "../redux/slicer/authNavigateSlice";
 import errorJson from "../Services/Firebase/authError.json";
 import { useNavigate } from "react-router-dom";
 
@@ -31,14 +30,14 @@ const LoginForm = () => {
         email,
         password
       );
-      dispatch(
-        login({
-          email: userCredential.user.email,
-          uid: userCredential.user.uid,
-          displayName: userCredential.user.displayName,
-        })
-      );
-      navigate("/homepage");
+      const user = {
+        email: userCredential.user.email,
+        uid: userCredential.user.uid,
+        displayName: userCredential.user.displayName,
+      };
+      //set credentials to local
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/");
     } catch (error) {
       dispatch(setError(errorJson[error.code]));
     }

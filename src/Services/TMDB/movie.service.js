@@ -32,3 +32,21 @@ export const getVideoMovie = (callback, id) => {
       console.log(err);
     });
 };
+
+export const searchMovies = (callback, query) => {
+  axios
+    .get(
+      `${BASE_URL}/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+      {
+        headers: {
+          Authorization: `${AUTHORIZATION}`,
+        },
+      }
+    )
+    .then((res) => {
+      callback(res.data.results);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

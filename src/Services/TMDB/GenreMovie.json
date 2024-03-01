@@ -1,0 +1,97 @@
+[
+  {
+    "id": 28,
+    "poster_path": "action.jpg?alt=media&token=3da88029-015d-4521-b11f-aa384582a25c",
+    "name": "Action"
+  },
+  {
+    "id": 12,
+    "poster_path": "advanture.jpg?alt=media&token=895c757f-e74a-4d9b-850c-4fbfbb233834",
+    "name": "Adventure"
+  },
+  {
+    "id": 16,
+    "poster_path": "animation.jpg?alt=media&token=13a38843-15b1-43a9-b258-6994f1d9b7f9",
+    "name": "Animation"
+  },
+  {
+    "id": 35,
+    "poster_path": "comedy.jpg?alt=media&token=bd375711-c759-4275-8dd1-b4c8b5e8f2f9",
+    "name": "Comedy"
+  },
+  {
+    "id": 80,
+    "poster_path": "crime.jpg?alt=media&token=83585a8c-6a06-4512-9cb7-2f1f5e0bf947",
+    "name": "Crime"
+  },
+  {
+    "id": 99,
+    "poster_path": "documentary.jpg?alt=media&token=0ed63cff-6310-4fad-b2e3-7781cb7c5d36",
+    "name": "Documentary"
+  },
+  {
+    "id": 18,
+    "poster_path": "drama.jpg?alt=media&token=ce7c98c8-20df-478f-aa35-a613d1eeb020",
+    "name": "Drama"
+  },
+  {
+    "id": 10751,
+    "poster_path": "family.jpg?alt=media&token=4b266196-1d47-4b28-9fdb-18b7546a009f",
+    "name": "Family"
+  },
+  {
+    "id": 14,
+    "poster_path": "fantasy.jpg?alt=media&token=258875b9-2d5e-4212-b10b-22bb0239e44b",
+    "name": "Fantasy"
+  },
+  {
+    "id": 36,
+    "poster_path": "history.jpg?alt=media&token=56aa8d20-6db8-4c6c-b7cc-103f6dbf3660",
+    "name": "History"
+  },
+  {
+    "id": 27,
+    "poster_path": "horor.jpg?alt=media&token=c9545136-13ac-4cc8-9dfb-ed2e4560f21e",
+    "name": "Horror"
+  },
+  {
+    "id": 10402,
+    "poster_path": "music.jpg?alt=media&token=48313063-bd21-4cb4-9b26-1d989eef83a3",
+    "name": "Music"
+  },
+  {
+    "id": 9648,
+    "poster_path": "mystery.jpg?alt=media&token=90a6e7b0-ae94-4a27-801f-0097b28c918e",
+    "name": "Mystery"
+  },
+  {
+    "id": 10749,
+    "poster_path": "romance.jpg?alt=media&token=bdd2571f-66aa-49a2-8f4a-c2199bbbb65b",
+    "name": "Romance"
+  },
+  {
+    "id": 878,
+    "poster_path": "sciencefiction.jpg?alt=media&token=eb4338a3-f5e0-4c3c-a009-4374c02613e4",
+    "name": "Science Fiction"
+  },
+  {
+    "id": 10770,
+    "poster_path": "tvmovie.jpg?alt=media&token=92cfe469-6b49-4cb9-bed2-a8edb0cc1da1",
+    "name": "TV Movie"
+  },
+  {
+    "id": 53,
+    "poster_path": "thriller.jpg?alt=media&token=ea73d353-247f-4393-9bbb-b5ff680225cc",
+    "name": "Thriller"
+  },
+  {
+    "id": 10752,
+    "poster_path": "war.jpg?alt=media&token=cbbd7f32-6e92-4d03-a1af-54c257781966",
+    "name": "War"
+  },
+  {
+    "id": 37,
+    "poster_path": "western.jpg?alt=media&token=92097a4e-5dc0-4698-bdae-34eb9ad406b5",
+    "name": "Western"
+  }
+]

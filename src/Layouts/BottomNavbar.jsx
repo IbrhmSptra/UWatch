@@ -6,7 +6,7 @@ import IcSearch from "../Components/Icons/IcSearch";
 
 const BottomNavbar = () => {
   return (
-    <div className="bg-secondary fixed bottom-8 right-4 left-4 sm:right-8 sm:left-8 md:hidden px-4 py-2 flex justify-around rounded-xl divide-x-0">
+    <div className="bg-secondary z-20 fixed bottom-8 right-4 left-4 sm:right-8 sm:left-8 md:hidden px-4 py-2 flex justify-around rounded-xl divide-x-0">
       <Link to="/" className="flex flex-col items-center">
         <IcHome addClass="text-3xl" />
         <p className="text-black font-light text-xs">Home</p>

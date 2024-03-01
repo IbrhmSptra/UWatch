@@ -31,7 +31,7 @@ const ItemCarousel = ({ data }) => {
             <BadgeCategory key={i} category={value} />
           ))}
         </div>
-        <Rating rating={Number(data.vote_average.toFixed(1))} />
+        <Rating rating={data.vote_average} />
       </div>
     </a>
   );

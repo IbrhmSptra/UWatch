@@ -3,10 +3,11 @@ import { CiImageOff } from "react-icons/ci";
 
 const SearchItem = ({ data }) => {
   const BASE_IMG_URL = import.meta.env.VITE_BASE_IMG_URL;
+
   return (
     <>
       <div className="p-4 text-white">
-        <Link className="flex gap-x-6">
+        <Link to={`/moviedetail/${data.id}`} className="flex gap-x-6">
           {data.poster_path ? (
             <img
               className="max-h-36"

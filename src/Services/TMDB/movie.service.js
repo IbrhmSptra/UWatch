@@ -98,3 +98,33 @@ export const getMovieByGenre = (callback, genre, page = 1) => {
       console.log(err);
     });
 };
+
+export const getDetailMovie = (callback, id) => {
+  axios
+    .get(`${BASE_URL}/movie/${id}?language=en-US`, {
+      headers: {
+        Authorization: `${AUTHORIZATION}`,
+      },
+    })
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((err) => {
+      callback(err);
+    });
+};
+
+export const getSimilarMovies = (callback, id) => {
+  axios
+    .get(`${BASE_URL}/movie/${id}/similar?language=en-US&page=1`, {
+      headers: {
+        Authorization: `${AUTHORIZATION}`,
+      },
+    })
+    .then((res) => {
+      callback(res.data.results);
+    })
+    .catch((err) => {
+      callback(err);
+    });
+};

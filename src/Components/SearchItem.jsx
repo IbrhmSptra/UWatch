@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 import { CiImageOff } from "react-icons/ci";
+import { useDispatch } from "react-redux";
+import { setItemSearchOff } from "../redux/slicer/webContent";
 
 const SearchItem = ({ data }) => {
   const BASE_IMG_URL = import.meta.env.VITE_BASE_IMG_URL;
+  const dispatch = useDispatch();
 
   return (
     <>
-      <div className="p-4 text-white">
+      <div
+        className="p-4 text-white"
+        onClick={() => {
+          dispatch(setItemSearchOff());
+        }}
+      >
         <Link to={`/moviedetail/${data.id}`} className="flex gap-x-6">
           {data.poster_path ? (
             <img

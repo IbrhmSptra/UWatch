@@ -32,9 +32,6 @@ const Search = ({ addCLass }) => {
       const delay = setTimeout(() => {
         searchMovies((data) => {
           setSearchedMovie(data.results);
-          if (width > 768) {
-            dispatch(setItemSearchOn());
-          }
         }, query);
       }, 500);
       return () => {
@@ -54,7 +51,8 @@ const Search = ({ addCLass }) => {
   //close search item when user click another component
   const itemRef = useRef(null);
   useAnotherCompClicked(itemRef, () => {
-    dispatch(setItemSearchOff);
+    dispatch(setItemSearchOff());
+    console.log("this clicked");
   });
 
   return (

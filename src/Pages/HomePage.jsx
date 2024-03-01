@@ -39,10 +39,10 @@ const HomePage = () => {
             btnNext="nextTopRated"
             btnPrev="prevTopRated"
           >
-            <CardSeeMore />
+            {topRatedMovie && <CardSeeMore />}
           </Slider>
 
-          {/* Trwnding Movie Slider */}
+          {/* Trending Movie Slider */}
           <Slider
             title="TRENDING THIS WEEK"
             data={trendingMovie}

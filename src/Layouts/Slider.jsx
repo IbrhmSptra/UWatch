@@ -7,11 +7,12 @@ import ButtonArrow from "../Components/ButtonArrow";
 import Card from "../Components/CardMovie";
 
 const Slider = ({ title, data, children, btnNext, btnPrev }) => {
+  console.log(data);
   return (
     <div className="mt-16">
       <h1 className="font-semibold text-3xl xl:text-3xl text-white">{title}</h1>
       <div className="mt-4 relative">
-        <ButtonArrow addClass={btnPrev} direction="left" />
+        {data.length > 0 && <ButtonArrow addClass={btnPrev} direction="left" />}
         <Swiper
           navigation={{ nextEl: `.${btnNext}`, prevEl: `.${btnPrev}` }}
           modules={[Navigation]}
@@ -30,7 +31,9 @@ const Slider = ({ title, data, children, btnNext, btnPrev }) => {
           ))}
           {children && <SwiperSlide>{children}</SwiperSlide>}
         </Swiper>
-        <ButtonArrow addClass={btnNext} direction="right" />
+        {data.length > 0 && (
+          <ButtonArrow addClass={btnNext} direction="right" />
+        )}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ const CardSeeMore = () => {
   return (
     <div className="relative ">
       <img
-        className="w-full h-full max-h-[18rem] sm:max-h-[24rem] md:max-h-[19rem]"
+        className="w-full h-full max-h-[13rem] sm:max-h-[24rem] md:max-h-[19rem]"
         src="https://image.tmdb.org/t/p/original/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg"
         alt="placeholder"
       />

@@ -12,7 +12,9 @@ const Pagination = ({ isEndPage, isFirstPage }) => {
             : "hover:bg-secondary hover:text-black cursor-pointer"
         }`}
         onClick={() => {
-          dispatch(prevPage());
+          if (!isFirstPage) {
+            dispatch(prevPage());
+          }
         }}
       >
         <h1 className="text-xl">Prev</h1>
@@ -25,7 +27,9 @@ const Pagination = ({ isEndPage, isFirstPage }) => {
             : "hover:bg-secondary hover:text-black cursor-pointer"
         }`}
         onClick={() => {
-          dispatch(nextPage());
+          if (!isEndPage) {
+            dispatch(nextPage());
+          }
         }}
       >
         <h1 className="text-xl">Next</h1>

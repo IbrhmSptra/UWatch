@@ -4,7 +4,7 @@ import Logo from "../Components/Logo";
 import BottomNavbar from "../Layouts/BottomNavbar";
 import background from "../assets/img/noise.png";
 import MovieDetailHeader from "../Layouts/MovieDetailHeader";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getSimilarMovies } from "../Services/TMDB/movie.service";
 import Videos from "../Layouts/Videos";
 import Slider from "../Layouts/Slider";
@@ -18,10 +18,10 @@ const MovieDetail = () => {
       setSimilarMovies(data);
     }, id);
   }, [id]);
-
+  const moviedetailSearch = useRef(null);
   return (
     <>
-      <Navbar />
+      <Navbar ref={moviedetailSearch} addClass="hidden md:block" />
       <main
         className="font-lgSpartan bg-black pb-36 pt-10 md:pb-10 px-4 sm:px-8 md:px-12 xl:px-40"
         style={{ backgroundImage: `url(${background})` }}

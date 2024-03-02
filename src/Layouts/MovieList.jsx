@@ -11,7 +11,7 @@ import genreJson from "../Services/TMDB/GenreMovie.json";
 import { useSelector } from "react-redux";
 import useWindowDimensions from "../Hooks/useWindowSize";
 
-const MovieList = ({ context, isSearch, watchlist }) => {
+const MovieList = ({ context, isSearch, watchlist, addClass }) => {
   const page = useSelector((state) => state.webContent.page);
   const [totalPage, setTotalPage] = useState(null);
   const [endPage, setEndPage] = useState(false);
@@ -110,11 +110,10 @@ const MovieList = ({ context, isSearch, watchlist }) => {
   ]);
 
   return (
-    <div className="md:mt-10">
+    <div className={`md:mt-10 ${addClass}`}>
       <h1 className="font-semibold text-3xl xl:text-3xl text-white">
-        {movieList ? context != "My Watchlist" : "Search"}
+        {movieList ? context : "Search"}
         {context == null && width <= 768 && "Search"}
-        {context == "My Watchlist" && ""}
       </h1>
       <div
         className={`mt-4 relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 min-h-screen`}

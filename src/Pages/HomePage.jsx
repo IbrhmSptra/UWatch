@@ -5,7 +5,7 @@ import Carousel from "../Layouts/Carousel";
 import Navbar from "../Layouts/Navbar";
 import Slider from "../Layouts/Slider";
 import CardSeeMore from "../Components/CardSeeMore";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getTopRated, getTrendingWeek } from "../Services/TMDB/movie.service";
 import Genre from "../Layouts/Genre";
 
@@ -20,9 +20,10 @@ const HomePage = () => {
       setTrendingMovie(data);
     });
   }, []);
+  const homePageSearch = useRef(null);
   return (
     <>
-      <Navbar />
+      <Navbar ref={homePageSearch} addClass="hidden md:block" />
       <main
         className="font-lgSpartan bg-black pb-36 pt-10 md:pb-10 px-4 sm:px-8 md:px-12 xl:px-40"
         style={{ backgroundImage: `url(${background})` }}

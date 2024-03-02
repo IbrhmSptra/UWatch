@@ -1,10 +1,10 @@
+/* eslint-disable react/display-name */
 import { IoSearch } from "react-icons/io5";
 import SearchItem from "./SearchItem";
 import { Link } from "react-router-dom";
 import { searchMovies } from "../Services/TMDB/movie.service";
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import useAnotherCompClicked from "../Hooks/useAnotherCompClicked";
-import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setItemSearchOff,
@@ -14,7 +14,7 @@ import {
 } from "../redux/slicer/webContent";
 import useWindowDimensions from "../Hooks/useWindowSize";
 
-const Search = ({ addCLass }) => {
+const Search = forwardRef(({ addClass }, ref) => {
   const dispatch = useDispatch();
   const showItems = useSelector((state) => state.webContent.showItemSearch);
   const query = useSelector((state) => state.webContent.query);
@@ -28,7 +28,7 @@ const Search = ({ addCLass }) => {
   }, [width, dispatch]);
 
   useEffect(() => {
-    if (query != "") {
+    if (query !== "") {
       const delay = setTimeout(() => {
         searchMovies((data) => {
           setSearchedMovie(data.results);
@@ -49,15 +49,14 @@ const Search = ({ addCLass }) => {
   }, [query, dispatch, width]);
 
   //close search item when user click another component
-  const itemRef = useRef(null);
-  useAnotherCompClicked(itemRef, () => {
+  useAnotherCompClicked(ref, () => {
     dispatch(setItemSearchOff());
-    console.log("this clicked");
+    console.log(ref);
   });
 
   return (
     <>
-      <div className={`relative w-full space-y-4 ${addCLass}`}>
+      <div className={`relative w-full space-y-4 ${addClass}`}>
         <div className="w-full h-fit relative">
           <IoSearch className="absolute left-2 top-1/2 -translate-y-1/2 text-white" />
           <input
@@ -82,7 +81,7 @@ const Search = ({ addCLass }) => {
         {showItems && searchedMovie.length > 0 && (
           <div
             className="w-full bg-card border-2 border-tertiary rounded-xl divide-y divide-grayText"
-            ref={itemRef}
+            ref={ref}
           >
             {searchedMovie.slice(0, 3).map((value, i) => (
               <SearchItem key={i} data={value} />
@@ -107,6 +106,6 @@ const Search = ({ addCLass }) => {
       </div>
     </>
   );
-};
+});
 
 export default Search;

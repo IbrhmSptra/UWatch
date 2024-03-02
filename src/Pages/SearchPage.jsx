@@ -3,19 +3,19 @@ import Navbar from "../Layouts/Navbar";
 import MovieList from "../Layouts/MovieList";
 import background from "../assets/img/noise.png";
 import BottomNavbar from "../Layouts/BottomNavbar";
-import Search from "../Components/Search";
+import { useRef } from "react";
 
 const SearchPage = () => {
   const { context } = useParams();
+  const searchDesktop = useRef(null);
 
   return (
     <>
-      <Navbar />
+      <Navbar ref={searchDesktop} />
       <main
-        className="font-lgSpartan bg-black pb-36 pt-8 md:pb-10 px-4 sm:px-8 md:px-12 xl:px-40"
+        className="font-lgSpartan bg-black pb-36 pt-20 md:pb-10 px-4 sm:px-8 md:px-12 xl:px-40"
         style={{ backgroundImage: `url(${background})` }}
       >
-        <Search addCLass={"block md:hidden mb-10"} />
         <MovieList context={context} isSearch={context} />
       </main>
       <BottomNavbar />

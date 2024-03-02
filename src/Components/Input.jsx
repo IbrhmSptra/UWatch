@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { setError } from "../redux/slicer/authNavigateSlice";
 
-const Input = ({ type, label, placeholder, onchange }) => {
+const Input = ({ type, label, placeholder, onchange, value }) => {
   const dispatch = useDispatch();
   return (
     <div>
@@ -16,6 +16,7 @@ const Input = ({ type, label, placeholder, onchange }) => {
         onFocus={() => {
           dispatch(setError(""));
         }}
+        value={value}
       />
     </div>
   );

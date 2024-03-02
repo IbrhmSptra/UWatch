@@ -10,6 +10,19 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  setDoc,
+  doc,
+  query,
+  where,
+  onSnapshot,
+  documentId,
+  deleteDoc,
+  getDocs,
+} from "firebase/firestore";
+import { data } from "autoprefixer";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -35,9 +48,74 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
 //init services
 const auth = getAuth();
+const db = getFirestore(app);
+const analytics = getAnalytics(app);
+
+export const getWatchlist = (id, uid, callback) => {
+  const watchlistQuery = query(
+    collection(db, "watchlist"),
+    where(documentId(), "==", `${id}`),
+    where("uid", "==", `${uid}`)
+  );
+  getDocs(watchlistQuery)
+    .then((querySnapshot) => {
+      querySnapshot.forEach((docSnapshot) => {
+        const data = docSnapshot.data(); // Get the document data
+        callback(data);
+      });
+    })
+    .catch((error) => {
+      callback(error);
+    });
+};
+
+export const getAllWatchlist = (uid, callback) => {
+  const watchlistQuery = query(
+    collection(db, "watchlist"),
+    where("uid", "==", `${uid}`)
+  );
+  getDocs(watchlistQuery)
+    .then((querySnapshot) => {
+      querySnapshot.forEach((docSnapshot) => {
+        const data = docSnapshot.data(); // Get the document data
+        callback(data);
+      });
+    })
+    .catch((error) => {
+      callback(error);
+    });
+};
+
+export const deleteWatchlist = (id, uid, callback) => {
+  const filterRef = query(
+    collection(db, "watchlist"),
+    where(documentId(), "==", `${id}`),
+    where("uid", "==", `${uid}`)
+  );
+  // Execute the query
+  getDocs(filterRef).then((querySnapshot) => {
+    querySnapshot.forEach((docSnapshot) => {
+      // Get a reference to the document
+      const docRef = doc(db, "watchlist", docSnapshot.id);
+
+      // Delete the document
+      deleteDoc(docRef)
+        .then(() => {
+          callback(data);
+        })
+        .catch((error) => {
+          console.error("Error deleting document: ", error);
+        });
+    });
+  });
+};
+export const insertWatchlist = async (id, data, callback) => {
+  await setDoc(doc(db, "watchlist", String(id)), data);
+  callback();
+};
 
 export {
   auth,
@@ -46,4 +124,5 @@ export {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  db,
 };

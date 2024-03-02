@@ -8,8 +8,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const AuthPage = () => {
   const isLogin = useSelector((state) => state.authNavigate.pageLogin);
-  const user = useSelector((state) => state.authNavigate.user);
-  console.log(user);
 
   return (
     <>

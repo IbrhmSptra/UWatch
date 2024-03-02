@@ -42,7 +42,7 @@ const MovieDetailHeader = ({ id }) => {
           {movie.vote_average && <Rating rating={movie.vote_average} />}
         </div>
         <div className="mb-8">
-          <ButtonAddWatchlist />
+          <ButtonAddWatchlist data={movie} />
         </div>
       </div>
     </div>

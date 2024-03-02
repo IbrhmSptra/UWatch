@@ -37,7 +37,7 @@ const LoginForm = () => {
       };
       //set credentials to local
       localStorage.setItem("user", JSON.stringify(user));
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       dispatch(setError(errorJson[error.code]));
     }

@@ -3,7 +3,7 @@ import ButtonAuth from "../Components/ButtonAuth";
 import Input from "../Components/Input";
 import Logo from "../Components/Logo";
 import NavigateAuth from "../Components/NavigateAuth";
-import { setError } from "../redux/slicer/authNavigateSlice";
+import { setError, togglePage } from "../redux/slicer/authNavigateSlice";
 import { useState } from "react";
 import {
   auth,
@@ -37,7 +37,14 @@ const RegisterForm = () => {
         updateProfile(userCredentials.user, {
           displayName: username,
         });
+        //reset all state
         dispatch(setError(""));
+        dispatch(togglePage());
+        setEmail("");
+        setPassword("");
+        setUsername("");
+        setRePassword("");
+
         setTimeout(() => {
           toast.success("Your account has been successfully created", {
             position: "top-right",
@@ -49,6 +56,7 @@ const RegisterForm = () => {
             theme: "colored",
           });
         }, 10);
+
         navigate("/");
       })
       .catch((error) => {
@@ -69,24 +77,28 @@ const RegisterForm = () => {
             type="text"
             placeholder="Enter Your Username"
             onchange={(e) => setUsername(e.target.value)}
+            value={username}
           />
           <Input
             label="Email"
             type="email"
             placeholder="Enter Your Email"
             onchange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <Input
             label="Password"
             type="password"
             placeholder="Enter Your Password"
             onchange={(e) => setPassword(e.target.value)}
+            value={password}
           />
           <Input
             label="Confirm Password"
             type="password"
             placeholder="Re-Enter Your Password"
             onchange={(e) => setRePassword(e.target.value)}
+            value={rePassword}
           />
           {errorMsg && <p className="text-red-500 text-center">{errorMsg}</p>}
         </div>

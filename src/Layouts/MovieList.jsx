@@ -11,7 +11,7 @@ import genreJson from "../Services/TMDB/GenreMovie.json";
 import { useSelector } from "react-redux";
 import useWindowDimensions from "../Hooks/useWindowSize";
 
-const MovieList = ({ context, isSearch }) => {
+const MovieList = ({ context, isSearch, watchlist }) => {
   const page = useSelector((state) => state.webContent.page);
   const [totalPage, setTotalPage] = useState(null);
   const [endPage, setEndPage] = useState(false);
@@ -32,6 +32,11 @@ const MovieList = ({ context, isSearch }) => {
         setMovieList(data);
         setTotalPage(data.total_pages);
       }, page);
+    }
+    //show my watchlist
+    else if (context == "My Watchlist") {
+      setMovieList(watchlist);
+      setTotalPage(watchlist.page);
     }
     // "see more" search on desktop screen -> /search/:context
     else if (context && context == isSearch && width > 768) {
@@ -92,18 +97,29 @@ const MovieList = ({ context, isSearch }) => {
     } else {
       setEndPage(false);
     }
-  }, [page, context, navigate, totalPage, genre, query, isSearch, width]);
+  }, [
+    page,
+    context,
+    navigate,
+    totalPage,
+    genre,
+    query,
+    isSearch,
+    width,
+    watchlist,
+  ]);
 
   return (
     <div className="md:mt-10">
       <h1 className="font-semibold text-3xl xl:text-3xl text-white">
-        {movieList ? context : "Search"}
+        {movieList ? context != "My Watchlist" : "Search"}
         {context == null && width <= 768 && "Search"}
+        {context == "My Watchlist" && ""}
       </h1>
       <div
         className={`mt-4 relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 min-h-screen`}
       >
-        {movieList.length != 0 &&
+        {movieList.results &&
           movieList.results.map((value, i) => <Card key={i} data={value} />)}
       </div>
       <div className="flex justify-center items-center mt-10">

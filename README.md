@@ -43,7 +43,7 @@ UWatch is a website movie with TMDB API for users to create their own watchlist
 
 ## Tech
 
-**Tech:** React, Redux, Axios, TMDB API, Firebase, Tailwind, Vite
+**Tech:** React, Redux, Axios, TMDB API, Firebase, Tailwind, Vite <br/>
 **Design & Mockup:** TLDraw, Figma
 
 
